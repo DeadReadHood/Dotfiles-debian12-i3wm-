@@ -1,19 +1,19 @@
-### Important things and stuff:
+# Important things and stuff:
 
 ## Apps:
 
-# System Informer: btop/htop
+### System Informer: btop/htop
 
-# Terminal: Kitty
+### Terminal: Kitty
 
-# Shell: ZSH
+### Shell: ZSH
 
-# App Launcher: Rofi
+### App Launcher: Rofi
 
-# Info bar: Polybar
+### Info bar: Polybar
 
-# WM: i3
+### WM: i3
 
-# File explorer: Nautilus/Thunar
+### File explorer: Nautilus/Thunar
 
 ## I am by no means a linux pro user :P
