@@ -16,9 +16,9 @@ set $mod Mod4
 exec_always --no-startup-id picom -b
 exec_always --no-startup-id killall polybar
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
-exec_always feh --bg-scale ~/wallpeper.png
+exec_always feh --bg-scale ~/.config/wallpeper2.png
 
-for_window [class="^.*"] border pixel 4
+for_window [class="^.*"] border pixel 6
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -63,11 +63,25 @@ bindsym $mod+t exec kitty
 # start  thunar
 bindsym $mod+o exec thunar
 
-# start firefox
-bindsym $mod+b exec firefox
+# start chromium
+bindsym $mod+b exec chromium
 
 # kill focused window
 bindsym $mod+q kill
+
+# Brightness controll
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+
+# Screenshots
+bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
+bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
+
+## Clipboard Screenshots
+bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id rofi -show run
@@ -121,6 +135,7 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 #bindsym $mod+space focus mode_toggle
 bindsym $mod+space exec rofi -show combi
+bindsym $mod+p exec rofi -show drun
 
 # focus the parent container
 bindsym $mod+a focus parent
